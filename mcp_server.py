@@ -8,7 +8,7 @@ mcp = FastMCP("DocumentMCP", log_level="ERROR")
 
 docs = {
     "deposition.md": "This deposition covers the testimony of Angela Smith, P.E.",
-    "report.pdf": "The report details the state of a 20m condenser tower.",
+    "git s": "The report details the state of a 20m condenser tower.",
     "financials.docx": "These financials outline the project's budget and expenditures.",
     "outlook.pdf": "This document presents the projected future performance of the system.",
     "plan.md": "The plan outlines the steps for the project's implementation.",
@@ -43,8 +43,6 @@ def edit_document(
         raise ValueError(f"Doc with id {doc_id} not found")
     docs[doc_id] = docs[doc_id].replace(old_str, new_str)
     return docs[doc_id]
-
-
 
 @mcp.resource(
     "docs://documents",

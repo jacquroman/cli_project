@@ -93,7 +93,6 @@ async def main():
         result = await _client.list_tools()
         print(result)
 
-
 if __name__ == "__main__":
     if sys.platform == "win32":
         asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
