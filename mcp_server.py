@@ -89,7 +89,30 @@ Use the 'edit_document' tool to edit the document. After the document has been r
     ]
 
 
-# TODO: Write a prompt to summarize a doc
+
+@mcp.prompt(
+    name="summarize",
+    description="Summarizes the contents of a document"
+)
+def summarize_document(
+    doc_id =Field(description="Id of the document to summarize")
+) -> list[base.Message]:
+    prompt=f"""
+
+    Your goals is to summarize a document so that the main ideas and message are still preserved but presented in a more succinct way.
+
+    The id of the document you need to summarize is:
+    <document_id>
+    {doc_id}
+    </document_id>
+
+    The summarization should be written in paragraph form and utilizing bullet points only where necessary to keep the concenpts clear.
+    Use the 'read_document' tool to consume the document information. Do not edit or affect the original document, simply output the summarized document.
+
+    """
+    return[
+        base.UserMessage(prompt)
+    ] 
 
 
 if __name__ == "__main__":
